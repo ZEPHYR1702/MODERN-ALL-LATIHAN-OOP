@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="MODERN_ALL_LATIHAN_OOP.Forms.FormOvo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MODERN_ALL_LATIHAN_OOP.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="FormOvo">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid>
+        <MenuBar HorizontalAlignment="Left" VerticalAlignment="Top">
+            <MenuBarItem Title="Account">
+                <MenuFlyoutItem x:Name="registerNewAccountToolStripMenuItem" Click="registerNewAccountToolStripMenuItem_Click" Text="Register New Account"/>
+                <MenuFlyoutItem x:Name="displayAccountsToolStripMenuItem" Click="displayAccountsToolStripMenuItem_Click" Text="Display Accounts"/>
+                <MenuFlyoutItem x:Name="removeAccountToolStripMenuItem" Click="removeAccountToolStripMenuItem_Click" Text="Remove Account"/>
+            </MenuBarItem>
+
+            <MenuBarItem Title="Transaction">
+                <MenuFlyoutItem x:Name="topUpToolStripMenuItem" Click="topUpToolStripMenuItem_Click" Text="Top Up"/>
+                <MenuFlyoutItem x:Name="buyToolStripMenuItem" Click="buyToolStripMenuItem_Click" Text="Buy"/>
+            </MenuBarItem>
+
+            <MenuBarItem x:Name="exitToolStripMenuItem" Tapped="exitToolStripMenuItem_Click" Title="Exit">
+            </MenuBarItem>
+        </MenuBar>
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50" FontSize="25" FontWeight="Bold">Ovo Simple Application</TextBlock>
+
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MODERN-ALL-LATIHAN-OOP (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MODERN-ALL-LATIHAN-OOP (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
