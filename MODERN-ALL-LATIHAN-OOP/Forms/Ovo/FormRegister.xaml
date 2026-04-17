@@ -16,12 +16,12 @@
     <Grid>
         <TextBlock FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50">Register Account</TextBlock>
         <StackPanel Orientation="Vertical" Spacing="10" VerticalAlignment="Center" Width="300">
-            <TextBox Header="Enter your name:" PlaceholderText="Name" />
-            <TextBox Header="Enter Your Phone Number:" PlaceholderText="Phone Number" />
-            <TextBox Header="Enter your PIN:" PlaceholderText="PIN" />
-            <TextBox Header="Enter your Ovo ID:" PlaceholderText="Ovo ID" />
+            <TextBox x:Name="textBoxName" Header="Enter your name:" PlaceholderText="Name" />
+            <TextBox x:Name="textBoxPhoneNumber" Header="Enter Your Phone Number:" PlaceholderText="Phone Number" />
+            <PasswordBox x:Name="textBoxPIN" Header="Enter your PIN:" PlaceholderText="PIN" />
+            <TextBox x:Name="textBoxOvoID" Header="Enter your Ovo ID:" PlaceholderText="Ovo ID" />
         </StackPanel>
-        <Button Content="Register" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50" Width="100"/>
-        <Button Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Width="100"/>
+        <Button x:Name="buttonRegister" Click="buttonRegister_Click" Content="Register" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50" Width="100"/>
+        <Button x:Name="buttonClose" Click="buttonClose_Click" Content="Close" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Width="100"/>
     </Grid>
 </Window>

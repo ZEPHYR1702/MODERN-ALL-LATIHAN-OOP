@@ -14,8 +14,10 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using MODERN_ALL_LATIHAN_OOP.Forms.Ovo;
+using MODERN_ALL_LATIHAN_OOP.Classes;
 using WinRT;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,12 +29,23 @@ namespace MODERN_ALL_LATIHAN_OOP.Forms
     /// </summary>
     public sealed partial class FormOvo : Window
     {
+        //Global variable
+        public static Dictionary<string, OvoClass> dictAccount = new Dictionary<string, OvoClass>();
+        public static BindingList<OvoClass> listAccount = new BindingList<OvoClass>();
+
         public FormOvo()
         {
             this.InitializeComponent();
+            AppWindow.TitleBar.PreferredTheme = TitleBarTheme.UseDefaultAppMode;
             OverlappedPresenter presenter = OverlappedPresenter.Create();
+
+            presenter.IsAlwaysOnTop = false;
             presenter.IsMaximizable = false;
+            presenter.IsMinimizable = true;
             presenter.IsResizable = false;
+            presenter.SetBorderAndTitleBar(true, true);
+
+            AppWindow.SetPresenter(presenter);
 
             IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             Microsoft.UI.WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);

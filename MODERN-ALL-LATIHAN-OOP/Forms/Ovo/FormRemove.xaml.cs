@@ -1,3 +1,4 @@
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -5,6 +6,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using MODERN_ALL_LATIHAN_OOP.Classes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,9 +25,49 @@ namespace MODERN_ALL_LATIHAN_OOP.Forms.Ovo
     /// </summary>
     public sealed partial class FormRemove : Window
     {
+        //Global variable
+        //FormOvo formOvo = new FormOvo();
+        OvoClass selectedAccount;
         public FormRemove()
         {
             InitializeComponent();
+
+            //window configuration
+            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            Microsoft.UI.WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+            Microsoft.UI.Windowing.AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
+            appWindow.TitleBar.PreferredTheme = TitleBarTheme.UseDefaultAppMode;
+            appWindow.Resize(new Windows.Graphics.SizeInt32(400, 300));
+
+            AppWindow.TitleBar.PreferredTheme = TitleBarTheme.UseDefaultAppMode;
+            OverlappedPresenter presenter = OverlappedPresenter.Create();
+
+            presenter.IsAlwaysOnTop = false;
+            presenter.IsMaximizable = false;
+            presenter.IsMinimizable = true;
+            presenter.IsResizable = false;
+            presenter.SetBorderAndTitleBar(true, true);
+
+            AppWindow.SetPresenter(presenter);
+
+            comboBoxRemove.ItemsSource = FormOvo.listAccount;
+            comboBoxRemove.DisplayMemberPath = "Nama";
+            //foreach (var name in FormOvo.dictAccount)
+            //{
+            //    comboBoxRemove.Items.Add(name.Key);
+            //}
+        }
+
+        private void buttonRemove_Click(object sender, RoutedEventArgs e)
+        {
+            selectedAccount = (OvoClass)comboBoxRemove.SelectedItem;
+            FormOvo.listAccount.Remove(selectedAccount);
+            comboBoxRemove.SelectedIndex = -1;
+        }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
